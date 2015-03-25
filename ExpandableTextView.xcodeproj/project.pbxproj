@@ -16,6 +16,9 @@
 		8B72A4CD1ABC288B00EF0E95 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8B72A4CC1ABC288B00EF0E95 /* Images.xcassets */; };
 		8B72A4D01ABC288B00EF0E95 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8B72A4CE1ABC288B00EF0E95 /* LaunchScreen.xib */; };
 		8B72A4DC1ABC288B00EF0E95 /* ExpandableTextViewTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B72A4DB1ABC288B00EF0E95 /* ExpandableTextViewTests.m */; };
+		8B72A4E71ABC289700EF0E95 /* ExpandableChatInputView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B72A4E61ABC289700EF0E95 /* ExpandableChatInputView.m */; };
+		8BA697D11ABD740B000F9006 /* RDRStickyKeyboardView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BA697CE1ABD740B000F9006 /* RDRStickyKeyboardView.m */; };
+		8BA697D21ABD740B000F9006 /* RDRTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BA697D01ABD740B000F9006 /* RDRTextView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,6 +48,12 @@
 		8B72A4D51ABC288B00EF0E95 /* ExpandableTextViewTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ExpandableTextViewTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		8B72A4DA1ABC288B00EF0E95 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8B72A4DB1ABC288B00EF0E95 /* ExpandableTextViewTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ExpandableTextViewTests.m; sourceTree = "<group>"; };
+		8B72A4E51ABC289700EF0E95 /* ExpandableChatInputView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExpandableChatInputView.h; sourceTree = "<group>"; };
+		8B72A4E61ABC289700EF0E95 /* ExpandableChatInputView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExpandableChatInputView.m; sourceTree = "<group>"; };
+		8BA697CD1ABD740B000F9006 /* RDRStickyKeyboardView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RDRStickyKeyboardView.h; sourceTree = "<group>"; };
+		8BA697CE1ABD740B000F9006 /* RDRStickyKeyboardView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RDRStickyKeyboardView.m; sourceTree = "<group>"; };
+		8BA697CF1ABD740B000F9006 /* RDRTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RDRTextView.h; sourceTree = "<group>"; };
+		8BA697D01ABD740B000F9006 /* RDRTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RDRTextView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,8 +95,14 @@
 		8B72A4B81ABC288B00EF0E95 /* ExpandableTextView */ = {
 			isa = PBXGroup;
 			children = (
+				8BA697CD1ABD740B000F9006 /* RDRStickyKeyboardView.h */,
+				8BA697CE1ABD740B000F9006 /* RDRStickyKeyboardView.m */,
+				8BA697CF1ABD740B000F9006 /* RDRTextView.h */,
+				8BA697D01ABD740B000F9006 /* RDRTextView.m */,
 				8B72A4BD1ABC288B00EF0E95 /* AppDelegate.h */,
 				8B72A4BE1ABC288B00EF0E95 /* AppDelegate.m */,
+				8B72A4E51ABC289700EF0E95 /* ExpandableChatInputView.h */,
+				8B72A4E61ABC289700EF0E95 /* ExpandableChatInputView.m */,
 				8B72A4C31ABC288B00EF0E95 /* MasterViewController.h */,
 				8B72A4C41ABC288B00EF0E95 /* MasterViewController.m */,
 				8B72A4C61ABC288B00EF0E95 /* DetailViewController.h */,
@@ -227,11 +242,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8BA697D21ABD740B000F9006 /* RDRTextView.m in Sources */,
 				8B72A4C81ABC288B00EF0E95 /* DetailViewController.m in Sources */,
 				8B72A4C51ABC288B00EF0E95 /* MasterViewController.m in Sources */,
 				8B72A4BF1ABC288B00EF0E95 /* AppDelegate.m in Sources */,
 				8B72A4C21ABC288B00EF0E95 /* ExpandableTextView.xcdatamodeld in Sources */,
 				8B72A4BC1ABC288B00EF0E95 /* main.m in Sources */,
+				8B72A4E71ABC289700EF0E95 /* ExpandableChatInputView.m in Sources */,
+				8BA697D11ABD740B000F9006 /* RDRStickyKeyboardView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -422,6 +440,7 @@
 				8B72A4E11ABC288B00EF0E95 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		8B72A4E21ABC288B00EF0E95 /* Build configuration list for PBXNativeTarget "ExpandableTextViewTests" */ = {
 			isa = XCConfigurationList;
@@ -430,6 +449,7 @@
 				8B72A4E41ABC288B00EF0E95 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 

@@ -3,13 +3,21 @@
 //  ExpandableTextView
 //
 //  Created by Developer on 20/03/15.
-//  Copyright (c) 2015 Technologies33. All rights reserved.
+//  Copyright (c) 2015 Arpit Awasthi. All rights reserved.
 //
 
 #import "MasterViewController.h"
 #import "DetailViewController.h"
+#import "ExpandableChatInputView.h"
+#import "RDRStickyKeyboardView.h"
 
-@interface MasterViewController ()
+@interface MasterViewController ()<ExpandableChatInputViewDelegate, UITextFieldDelegate>
+@property (strong, nonatomic) IBOutlet UIBarButtonItem *middlebarButtonItem;
+
+@property (nonatomic, strong) RDRStickyKeyboardView *contentWrapper;
+- (IBAction)invokeMessageView:(id)sender;
+@property (strong, nonatomic) IBOutlet UITableView *tableView;
+@property (strong, nonatomic) IBOutlet ExpandableChatInputView *inputView;
 
 @end
 
@@ -26,7 +34,45 @@
 
     UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(insertNewObject:)];
     self.navigationItem.rightBarButtonItem = addButton;
+    
+//    [self setUpForExpandableTextView];
+    
+    // Setup wrapper
+//    self.contentWrapper = [[RDRStickyKeyboardView alloc] initWithScrollView:self.tableView];
+//    CGRect frame = self.view.bounds;
+//    frame.size.height = 44.0f;
+////    frame.origin.y = self.view.bounds.size.height - 44.0f;
+//    self.contentWrapper.frame = frame;
+//    self.contentWrapper.autoresizingMask = UIViewAutoresizingFlexibleHeight|UIViewAutoresizingFlexibleWidth;
+//    self.contentWrapper.placeholder = @"Message";
+//    [self.contentWrapper.inputView.rightButton addTarget:self action:@selector(didTapSend:) forControlEvents:UIControlEventTouchUpInside];
+    
+    [self.tableView registerClass:[UITableViewCell class]
+           forCellReuseIdentifier:@"Cell"];
+//    _inputView.containerScrollView = _containerScrollView;
+    [self setUpForExpandableTextView];
 }
+
+- (void)didTapSend:(id)sender
+{
+    [self.contentWrapper hideKeyboard];
+}
+
+- (void) viewWillAppear:(BOOL)animated{
+    [self.view addSubview:self.contentWrapper];
+    
+    //register input view
+    [self inputViewRegisterKeyboardNotification];
+}
+
+- (void) viewWillDisappear:(BOOL)animated{
+//    [self.contentWrapper removeFromSuperview];
+
+    //unregister input view
+    [self inputViewUnregisterKeyboardNotification];
+
+}
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -34,6 +80,8 @@
 }
 
 - (void)insertNewObject:(id)sender {
+    [self.view endEditing:YES];
+    
     NSManagedObjectContext *context = [self.fetchedResultsController managedObjectContext];
     NSEntityDescription *entity = [[self.fetchedResultsController fetchRequest] entity];
     NSManagedObject *newManagedObject = [NSEntityDescription insertNewObjectForEntityForName:[entity name] inManagedObjectContext:context];
@@ -79,6 +127,14 @@
     return cell;
 }
 
+//- (UIView *) tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section{
+//    return _expandableTextView;
+//}
+//
+//- (CGFloat) tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section{
+//    return _expandableTextView.frame.size.height;
+//}
+
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
     // Return NO if you do not want the specified item to be editable.
     return YES;
@@ -103,6 +159,15 @@
     NSManagedObject *object = [self.fetchedResultsController objectAtIndexPath:indexPath];
     cell.textLabel.text = [[object valueForKey:@"timeStamp"] description];
 }
+
+//-(void) tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath
+//{
+//    if([indexPath row] == ((NSIndexPath*)[[tableView indexPathsForVisibleRows] lastObject]).row){
+//        //end of loading
+//        //for example [activityIndicator stopAnimating];
+//        [_expandableTextView setViewAtBottom:tableView];
+//    }
+//}
 
 #pragma mark - Fetched results controller
 
@@ -205,5 +270,44 @@
     [self.tableView reloadData];
 }
  */
+
+
+
+
+
+#pragma mark - Expandatble TextView
+//- (BOOL) textFieldShouldBeginEditing:(UITextField *)textField{
+//    [_expandableTextView.textView becomeFirstResponder];
+//    return YES;
+//}
+//
+//- (BOOL) textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string{
+//    return YES;
+//}
+//
+
+
+- (void) setUpForExpandableTextView{
+    [_inputView setPlaceHolder:NSLocalizedString(@"Write..", nil)];
+    [_inputView setDelegate:self];
+}
+
+
+- (void) inputViewRegisterKeyboardNotification{
+    [_inputView registerForKeyboardNotifications];
+}
+
+- (void) inputViewUnregisterKeyboardNotification{
+    [_inputView unregisterForKeyboardNotifications];
+}
+
+//Delegate
+- (void) textView : (ExpandableChatInputView *) textView message : (NSString *) text send : (id) sender{
+    
+}
+
+- (void) textView : (ExpandableChatInputView *) textView mediaButton : (id) sender touched : (BOOL) condition{
+    
+}
 
 @end

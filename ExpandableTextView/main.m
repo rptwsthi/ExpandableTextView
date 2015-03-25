@@ -3,7 +3,7 @@
 //  ExpandableTextView
 //
 //  Created by Developer on 20/03/15.
-//  Copyright (c) 2015 Technologies33. All rights reserved.
+//  Copyright (c) 2015 Arpit Awasthi. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
@@ -14,3 +14,4 @@ int main(int argc, char * argv[]) {
         return UIApplicationMain(argc, argv, nil, NSStringFromClass([AppDelegate class]));
     }
 }
+ 

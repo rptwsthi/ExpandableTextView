@@ -3,7 +3,7 @@
 //  ExpandableTextView
 //
 //  Created by Developer on 20/03/15.
-//  Copyright (c) 2015 Technologies33. All rights reserved.
+//  Copyright (c) 2015 Arpit Awasthi. All rights reserved.
 //
 
 #import "DetailViewController.h"

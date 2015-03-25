@@ -3,7 +3,7 @@
 //  ExpandableTextView
 //
 //  Created by Developer on 20/03/15.
-//  Copyright (c) 2015 Technologies33. All rights reserved.
+//  Copyright (c) 2015 Arpit Awasthi. All rights reserved.
 //
 
 #import "AppDelegate.h"
@@ -56,7 +56,7 @@
 @synthesize persistentStoreCoordinator = _persistentStoreCoordinator;
 
 - (NSURL *)applicationDocumentsDirectory {
-    // The directory the application uses to store the Core Data store file. This code uses a directory named "technologies33.ExpandableTextView" in the application's documents directory.
+    // The directory the application uses to store the Core Data store file. This code uses a directory named "Arpit Awasthi.ExpandableTextView" in the application's documents directory.
     return [[[NSFileManager defaultManager] URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask] lastObject];
 }
 
